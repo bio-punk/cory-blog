@@ -1,0 +1,12 @@
+.hugo_build.lock
+# Hugo cache directory
+.cache
+# Hugo public directory
+public
+# Hugo resources directory
+resources
+# Hugo themes directory (if you are using a theme)
+themes
+# Hugo config file (if you have a custom config file)
+config.toml
+# Hugo content directory (if you have a custom content directory)
