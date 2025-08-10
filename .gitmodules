@@ -3,7 +3,7 @@
 	url = https://github.com/nunocoracao/blowfish.git
 	branch = main
 
-[submodule "public]
+[submodule "public"]
 	path = public
 	url = https://github.com/bio-punk/bio-punk.github.io.git
 	branch = main
