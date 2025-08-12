@@ -89,3 +89,11 @@ docker info|grep -i proxy
     }
 }
 ```
+5. overlay网络创建
+## 头结点配置
+```bash
+export MASTER_ADDR="10.20.20.11"
+docker swarm init --advertise-addr $MASTER_ADDR
+docker network create -d overlay --subnet="10.20.200.0/24" --gateway="10.20.200.1" --attachable overlay01
+
+```
