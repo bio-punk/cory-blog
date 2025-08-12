@@ -1,5 +1,5 @@
 ---
-title: "Docker_gpu_ib"
+title: "带IB和GPU的docker安装"
 date: 2025-08-11T15:03:39+08:00
 draft: false
 description: ""
@@ -187,3 +187,5 @@ mpirun --allow-run-as-root \
   -np 32 -H 10.20.200.100:8,10.20.200.101:8,10.20.200.102:8,10.20.200.103:8 \
   ./build/all_reduce_perf -g 1 -b 512M -e 16G -f 2 2>&1 |tee test4node.log
 ```
+
+{{<gist bio-punk ddd0800683b8b21589f88c84906451ef>}}
