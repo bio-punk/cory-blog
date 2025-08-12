@@ -44,7 +44,40 @@ sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
 ```
 
-3. MTU配置
+3. docker网络配置
+```conf
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:7897"
+Environment="HTTPS_PROXY=http://127.0.0.1:7897"
+Environment="NO_PROXY=localhost,127.0.0.1"
+
+```
+
+```json
+{
+ "proxies": {
+   "default": {
+     "httpProxy": "http://127.0.0.1:7897",
+     "httpsProxy": "http://127.0.0.1:7897",
+     "noProxy": "localhost,127.0.0.1/8"
+   }
+ }
+}
+```
+
+```bash
+sudo mkdir -p /etc/systemd/system/docker.service.d
+cp http-proxy.conf /etc/systemd/system/docker.service.d
+mkdir -p /root/.docker
+cp config.json /root/.docker/
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+docker info|grep -i proxy
+```
+
+4. MTU配置
+还是修改 /root/.docker/config.json
+
 ```json
 {   "registry-mirrors": ["https://docker.m.daocloud.io"],
     "mtu":1442,
